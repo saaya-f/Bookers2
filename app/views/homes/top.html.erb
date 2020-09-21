@@ -4,10 +4,7 @@
     <p>you can share and exchange your opinions , inpressions , and emotions</p>
     <p>about various books!</p>
 
-    <p>Log in</>
-    <p>Sign Up</p>
+    <p><%= link_to 'Log in', new_user_session_path, method: :get %></p>
+    <p><%= link_to 'Sign Up', new_user_registration_path, method: :get %></p>
 
-  <footer>
-    <p>CopyRight Infratop.inc</p>
-  </footer>
 </body>
