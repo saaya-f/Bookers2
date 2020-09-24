@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :authenticate_user!
   def index
     @user = current_user
     @book = Book.new
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    redirect_not_match_user(@user.id)
   end
 
   def update
@@ -28,5 +30,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-
+  
+  def redirect_not_match_user(user_id)
+    redirect_to user_path(current_user.id) if current_user.id != user_id
+  end
 end

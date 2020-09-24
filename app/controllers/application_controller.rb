@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     user_path(resource)
   end
-
+  
+  def logout
+    redirect_to root_path, notice: "Signed out successfully."
+  end
+  
   protected
 
   def configure_permitted_parameters
