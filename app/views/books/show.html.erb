@@ -37,11 +37,11 @@
           <% end %>
           <div class="field row">
             <label for="book_title">Title</label>
-            <p><%= f.text_field :title, class:"col-xs-12 book_title" %></p>
+            <p><%= f.text_field :title, class:"col-xs-12 book_title", value:"" %></p>
           </div>
           <div class="field row">
             <label for="book_opinion">Opinion</label>
-            <p><%= f.text_area :body, class:"col-xs-12 book_body" %></p>
+            <p><%= f.text_area :body, class:"col-xs-12 book_body", value:"" %></p>
           </div>
           <div class="actions row">
             <%= f.submit "Create Book", class:"btn btn-primary col-xs-12" %>
@@ -54,7 +54,7 @@
           <tbody>
             <tr>
               <td>
-                <%= link_to user_path(@user.id) do %>
+                <%= link_to user_path(@book.user_id) do %>
                 <%= attachment_image_tag @book.user, :profile_image, size: '50x50', format: 'jpeg', fallback: "no_image.jpg" %>
                 <p><%= @book.user.name %></p>
                 <% end %>
