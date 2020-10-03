@@ -30,7 +30,7 @@ before_action :authenticate_user!
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-  
+
   def redirect_not_match_user(user_id)
     redirect_to user_path(current_user.id) if current_user.id != user_id
   end
