@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   #↑ devise利用時にURLとしてusersを含むことを示す
   resources :books do
+    resource :favorites, only: [:create, :destroy]
+    #idの受け渡しが必要ないからresource(単数形)
     resources :book_comments, only: [:create, :destroy]
   end
   patch "/books" => "books#create"
